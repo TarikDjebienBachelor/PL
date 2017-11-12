@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE game SYSTEM "...YOUR_PATH.../simulationConfig.dtd">
+<game>
+  <labyrinth>
+    <labyClass>xml.MyLabyrinth</labyClass>
+    <param>10</param> <!-- largeur -->
+    <param>10</param> <!-- hauteur -->
+  </labyrinth>
+  
+  <goal>
+    <goalClass>game.goal.GoalPosition</goalClass>
+    <clueClass>xml.ClueDirection</clueClass>
+    <clueClass>xml.ClueDistance</clueClass>
+  </goal>
+  
+  <hero>
+    <heroClass>game.character.MonHero</heroClass>
+    <arg>10</arg>                   <!-- initial gold  -->
+    <action>game.action.TakeAction</action>
+    <action>game.action.MoveAction</action>
+    <action>game.action.UseAction</action>
+    <action>game.action.AskAction</action>
+    <action>game.action.LookAction</action>
+  </hero>
+  
+  <characters>
+    <characterRate>10</characterRate>
+    <character>
+      <characterClass>game.character.Sphynx</characterClass>
+      <rate>10</rate>
+      <!-- no arg -->
+      <!-- no action -->
+    </character>
+    <character>
+      <characterClass>game.character.ClueSeller</characterClass>
+      <rate>60</rate>
+      <arg>7</arg> <!-- cost of a clue -->
+      <action>game.action.AskAction</action>
+      <action>game.action.MoveAction</action>
+    </character>
+    <character>
+      <characterClass>game.character.MadMan</characterClass>
+      <rate>30</rate>
+      <!-- no arg -->
+      <action>game.action.MoveAction</action>
+    </character>
+  </characters>
+  
+  <items>
+    <itemRate>25</itemRate>
+    <item>
+      <itemClass>game.item.Gold</itemClass>
+      <rate>40</rate>
+    </item>
+    <item>
+      <itemClass>game.item.Scroll</itemClass>
+      <rate>40</rate>
+    </item>
+    <item>
+      <itemClass>game.item.OtherItem</itemClass>
+      <rate>20</rate>
+    </item>
+  </items>
+
+</game>

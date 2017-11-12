@@ -1,0 +1,63 @@
+<!ELEMENT game (labyrinth,goal,hero,characters,items)>
+
+<!-- the class of the labyrinth to be created, it has a constructor -->
+<!-- it must have an empty constructor -->
+<!ELEMENT labyrinth (labyClass,param*)>
+<!ELEMENT labyClass (#PCDATA)>
+<!-- the parameters of the constructor to intialize an array String[] 
+   (for example : the width or height of the labyrinth if it has 
+   meaning for the chosen labyrinth class)-->
+<!-- The labyrinth class must have a method "init(String[] param)" that -->
+<!-- creates and connect the places/(or cells) in the labyrinth -->
+<!ELEMENT param (#PCDATA)>
+
+<!-- the goal of the game -->
+<!ELEMENT goal (goalClass, clueClass*)>
+<!-- class name of the goal of the game -->
+<!ELEMENT goalClass (#PCDATA)>
+<!-- the classes of possible clues for the game -->
+<!ELEMENT clueClass (#PCDATA)>
+
+<!ELEMENT hero (heroClass,arg*,action*)>
+<!-- class name of the hero, it must have an empty constructor -->
+<!ELEMENT heroClass (#PCDATA)>
+<!-- args to intialize the hero instance using some method 
+   called "init(String[] args)"-->
+<!ELEMENT arg (#PCDATA)>
+<!-- The full name of a class that represents an action the -->
+<!-- hero is able to use. -->
+<!-- Such a command must have a constructor with a -->
+<!-- game character as parameter for initialization purposes. -->
+<!ELEMENT action (#PCDATA)>
+
+<!-- the characters... -->
+<!ELEMENT characters (characterRate, character*)>
+<!-- Probability that a character (not the hero) will be created on a 
+   layrinth place -->
+<!ELEMENT characterRate (#PCDATA)>
+<!ELEMENT character (characterClass,rate,arg*,action*)>
+<!-- The full name of the class that instanciates the character. -->
+<!-- This class must have an emtpy constructor. -->
+<!ELEMENT characterClass (#PCDATA)>
+<!-- In this case, the rate represents the probability that the 
+   created  character will be from this particular class.  A priori, 
+   the sum of these rates has to be equal to 100 --> 
+<!ELEMENT rate (#PCDATA)>
+<!-- ELEMENT "arg" is already defined above -->
+<!-- ELEMENT "action" is already defined above -->
+
+<!-- the items -->
+<!ELEMENT items (itemRate, item*)>
+<!-- Probability that a thing will be created on a labyrinth place. -->
+<!ELEMENT itemRate (#PCDATA)>
+<!ELEMENT item (itemClass,rate)>
+<!-- The full name of the class that instanciates the item. -->
+<!-- This class must have an empty constructor -->
+<!-- Items initialization will be made with default or random 
+   values. --> 
+<!-- Thus, there is no parameters (no arg tags). -->
+<!ELEMENT itemClass (#PCDATA)>
+<!-- In this case, the rate represents the probability that the created -->
+<!-- item will be from this particular class. -->
+<!-- A priori, the sum of these rates has to be equal to 100 -->
+<!-- ELEMENT "rate" is already defined above -->
